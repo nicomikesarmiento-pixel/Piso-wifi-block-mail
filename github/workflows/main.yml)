@@ -1,0 +1,22 @@
+name: Sarmiento-AutoBot
+on:
+  schedule:
+    - cron: '0 */4 * * *' # Tatakbo kusa bawat 4 hours
+  workflow_dispatch: # Pwede mong pindutin manual "Run workflow"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Bot
+        run: |
+          pip install requests
+          python bot.py
+      - name: Save Changes
+        run: |
+          git config --local user.email "bot@github.com"
+          git config --local user.name "Sarmiento-Bot"
+          git add .
+          git commit -m "Auto-update node"
+          git push
+
