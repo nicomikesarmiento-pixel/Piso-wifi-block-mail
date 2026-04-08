@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisowifi Block Mail | Nico Sarmiento</title>
+    <style>
+        :root { --primary: #00d2ff; --secondary: #3a7bd5; --dark: #0f172a; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .portal-container { width: 90%; max-width: 400px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 25px; padding: 30px; text-align: center; }
+        h1 { font-size: 1.4rem; margin: 0; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .status-badge { display: inline-block; padding: 6px 15px; background: rgba(0, 255, 127, 0.1); color: #00ff7f; border-radius: 20px; font-size: 0.7rem; margin: 20px 0; border: 1px solid #00ff7f; }
+        .server-card { background: rgba(0, 0, 0, 0.4); border-radius: 15px; padding: 15px; margin-top: 15px; text-align: left; border-left: 4px solid var(--primary); cursor: pointer; }
+        .label { font-size: 0.6rem; color: var(--primary); text-transform: uppercase; }
+        .value { font-family: monospace; font-size: 0.8rem; word-break: break-all; margin-top: 5px; color: #cbd5e1; }
+        .btn-update { width: 100%; padding: 12px; background: linear-gradient(45deg, var(--primary), var(--secondary)); border: none; border-radius: 12px; color: white; font-weight: bold; margin-top: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="portal-container">
+    <h1>Pisowifi Block Mail</h1>
+    <p style="font-size: 0.7rem; opacity: 0.5;">POWERED BY SARMIENTO ENGINE V6</p>
+    <div class="status-badge" id="status">● AUTO-SCANNING ACTIVE</div>
+    
+    <div class="server-card" onclick="copyText('payload')">
+        <div class="label">Latest UDP/Hysteria Node</div>
+        <div class="value" id="payload">Scanning for fresh servers...</div>
+    </div>
+
+    <button class="btn-update" onclick="location.reload()">FORCE REFRESH</button>
+    
+    <div style="margin-top: 25px; font-size: 0.6rem; opacity: 0.3;">
+        Developed by Nico Sarmiento | Grade 12 ALS-HUMSS
+    </div>
+</div>
+
+<script>
+    function copyText(id) {
+        var text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        alert("Server Copied! Paste it in your VPN app.");
+    }
+</script>
+</body>
+</html>
